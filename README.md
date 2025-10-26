@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -100,6 +99,13 @@
                     <!-- Mission Mapping -->
                     <div class="dynamic-list-container">
                         <h3 class="text-lg font-semibold text-gray-800 mb-2">Mission Mapping</h3>
+                        <div id="missionMapping_inputs" class="space-y-2 mb-2"></div>
+                        <button onclick="addInput('missionMapping', 'text')" class="text-blue-600 hover:text-blue-800 text-sm font-medium transition duration-150 ease-in-out">+ Add Personnel</button>
+                    </div>
+
+                    <!-- Mission ADC -->
+                    <div class="dynamic-list-container">
+                        <h3 class="text-lg font-semibold text-gray-800 mb-2">Mission ADC</h3>
                         <div id="missionMapping_inputs" class="space-y-2 mb-2"></div>
                         <button onclick="addInput('missionMapping', 'text')" class="text-blue-600 hover:text-blue-800 text-sm font-medium transition duration-150 ease-in-out">+ Add Personnel</button>
                     </div>
