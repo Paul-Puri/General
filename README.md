@@ -459,7 +459,7 @@ Mission: MDC: ${formatList('missionMDC', textFormatter)}
 
 Mission: Mapping: ${formatList('missionMapping', textFormatter)}
 
-Mission: ADC: ${formatList('missionADC', textFormatter)} // ADDED: Output for Mission ADC
+Mission: ADC: ${formatList('missionADC', textFormatter)} 
 
 Depot: ${formatList('depot', textFormatter)}
 
