@@ -1,3 +1,4 @@
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -106,8 +107,8 @@
                     <!-- Mission ADC -->
                     <div class="dynamic-list-container">
                         <h3 class="text-lg font-semibold text-gray-800 mb-2">Mission ADC</h3>
-                        <div id="missionMapping_inputs" class="space-y-2 mb-2"></div>
-                        <button onclick="addInput('missionMapping', 'text')" class="text-blue-600 hover:text-blue-800 text-sm font-medium transition duration-150 ease-in-out">+ Add Personnel</button>
+                        <div id="missionADC_inputs" class="space-y-2 mb-2"></div>
+                        <button onclick="addInput('missionADC', 'text')" class="text-blue-600 hover:text-blue-800 text-sm font-medium transition duration-150 ease-in-out">+ Add Personnel</button>
                     </div>
 
                     <!-- Depot -->
@@ -239,6 +240,7 @@
         const personnelData = {
             missionMDC: [],
             missionMapping: [],
+            missionADC: [], // ADDED: Unique data store for Mission ADC
             depot: [],
             trainers: [],
             trainees: [],
@@ -457,6 +459,8 @@ Mission: MDC: ${formatList('missionMDC', textFormatter)}
 
 Mission: Mapping: ${formatList('missionMapping', textFormatter)}
 
+Mission: ADC: ${formatList('missionADC', textFormatter)} // ADDED: Output for Mission ADC
+
 Depot: ${formatList('depot', textFormatter)}
 
 Trainers: ${formatList('trainers', textFormatter)}
@@ -508,7 +512,18 @@ Total AV's in training: ${trainingAVs}
                 setTimeout(() => status.classList.add('hidden'), 2000);
             } catch (err) {
                 console.error('Could not copy text: ', err);
-                alert('Copying failed. Please copy the text manually.'); // Using a minimal alert for error fallback
+                // Using a minimal custom message instead of alert()
+                const status = document.getElementById('copyStatus');
+                status.textContent = 'Copying failed. Please copy the text manually.';
+                status.classList.remove('hidden');
+                status.classList.remove('text-green-700');
+                status.classList.add('text-red-700');
+                setTimeout(() => {
+                    status.classList.add('hidden');
+                    status.classList.remove('text-red-700');
+                    status.classList.add('text-green-700');
+                    status.textContent = 'Copied successfully!';
+                }, 4000);
             }
         };
 
